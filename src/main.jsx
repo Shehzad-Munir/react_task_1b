@@ -15,6 +15,11 @@ function renderRoutes(role) {
             path="/admin/dashboard"
             element={<AdminDashboardPage />}
           ></Route>
+          <Route
+            path="/admin/snack"
+            element={<SnackBar />}
+          ></Route>
+          
         </Routes>
       );
       break;

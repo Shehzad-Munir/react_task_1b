@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import MkdSDK from "../utils/MkdSDK";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useHistory } from "react-router-dom";
 import { AuthContext } from "../authContext";
 
 const AdminLoginPage = () => {
@@ -28,6 +28,10 @@ const AdminLoginPage = () => {
   const onSubmit = async (data) => {
     let sdk = new MkdSDK();
     //TODO
+    
+
+    
+    console.log(sdk.login("adminreacttask@manaknight.com","a123456","admin"))
 
     // sdk.login("adminreacttask@manaknight.com","a123456","admin")
   };

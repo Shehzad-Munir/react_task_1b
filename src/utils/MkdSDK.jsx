@@ -16,8 +16,8 @@ export default function MkdSDK() {
   this.login = async function (email, password, role) {
     //TODO
     const url = "https://reacttask.mkdlabs.com/v2/api/lambda/login";
-    await fetch(url,{
-      method: 'POST',
+    return await fetch("https://reacttask.mkdlabs.com/v2/api/lambda/login",{
+      method: 'post',
       headers:{
         'Accept': 'application/json',
         "content-type" :"application/json",
@@ -27,12 +27,9 @@ export default function MkdSDK() {
         {
           "email": email,
           "password": password,
-          "role": role
+          "role":role
         })
-    }).then((res)=>{
-      console.log(res.body)
-      return res.body
-    })
+    }).then(function(res) { return res.json()})
   };
 
   this.getHeader = function () {
