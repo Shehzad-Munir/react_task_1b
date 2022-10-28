@@ -16,12 +16,11 @@ export default function MkdSDK() {
   this.login = async function (email, password, role) {
     //TODO
     const url = "https://reacttask.mkdlabs.com/v2/api/lambda/login";
-    fetch(url,{
+    await fetch(url,{
       method: 'POST',
       headers:{
         'Accept': 'application/json',
         "content-type" :"application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
         "x-project": base64Encode,
       },
       body: JSON.stringify(
@@ -31,6 +30,7 @@ export default function MkdSDK() {
           "role": role
         })
     }).then((res)=>{
+      console.log(res.body)
       return res.body
     })
   };
@@ -105,7 +105,27 @@ export default function MkdSDK() {
   };  
 
   this.check = async function (role) {
+
     //TODO
+    const url = "https://reacttask.mkdlabs.com/v2/api/lambda/check";
+    await fetch(url,{
+      method: 'POST',
+      headers:{
+        'Accept': 'application/json',
+        "content-type" :"application/json",
+        "x-project": base64Encode,
+        "Authorization": "Bearer " + localStorage.getItem("token"),
+
+
+      },
+      body: JSON.stringify(
+        {
+          "role": role
+        })
+    }).then((res)=>{
+      console.log(res.body)
+      return res.body
+    })
   };
 
   return this;

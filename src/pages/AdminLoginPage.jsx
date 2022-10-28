@@ -28,6 +28,8 @@ const AdminLoginPage = () => {
   const onSubmit = async (data) => {
     let sdk = new MkdSDK();
     //TODO
+
+    // sdk.login("adminreacttask@manaknight.com","a123456","admin")
   };
 
   return (
